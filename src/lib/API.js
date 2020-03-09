@@ -16,5 +16,6 @@ export default {
     } else {
       return FIRESTORE.getSolderTips(page)
     }
-  }
+  },
+
 }

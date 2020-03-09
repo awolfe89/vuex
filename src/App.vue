@@ -6,19 +6,25 @@
       app
       clipped
     >
+
       <v-list dense>
         <v-list-item
           v-for="item in items"
           :key="item.text"
           @click=""
         >
+
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
+             <router-link :to='{path: item.route}'> 
             <v-list-item-title>
-              {{ item.text }}
+                            {{ item.text }} 
+                           
+         
             </v-list-item-title>
+             </router-link >
           </v-list-item-content>
         </v-list-item>
      
@@ -108,19 +114,19 @@
     data: () => ({
       drawer: null,
       items: [
-        { icon: 'home', text: 'Home', },
-        { icon: 'forward', text: 'Adhesives', },
-        { icon: 'forward', text: 'Benches & Seating' },
-        { icon: 'forward', text: 'Chemicals & Cleaning' },
-        { icon: 'forward', text: 'Cleanroom' },
-        { icon: 'forward', text: 'Hand Tools' },
-        { icon: 'forward', text: 'Labels' },
-        { icon: 'forward', text: 'Magnification & Lighting' },
-        { icon: 'forward', text: 'Material Handling' },
-        { icon: 'forward', text: 'Coatings' },
-        { icon: 'forward', text: 'Soldering Materials' },
-        { icon: 'forward', text: 'Soldering Stations & Irons' },
-        { icon: 'forward', text: 'Soldering Tips' },
+        { icon: 'home', text: 'Home', route: '/' },
+        { icon: 'forward', text: 'Adhesives', route: '/'},
+        { icon: 'forward', text: 'Benches & Seating', route: '/' },
+        { icon: 'forward', text: 'Chemicals & Cleaning', route: '/fluxremovers' },
+        { icon: 'forward', text: 'Cleanroom', route: '/' },
+        { icon: 'forward', text: 'Hand Tools', route: '/'},
+        { icon: 'forward', text: 'Labels', route: '/' },
+        { icon: 'forward', text: 'Magnification & Lighting', route: '/'},
+        { icon: 'forward', text: 'Material Handling', route: '/' },
+        { icon: 'forward', text: 'Coatings', route: '/'},
+        { icon: 'forward', text: 'Soldering Materials', route: '/' },
+        { icon: 'forward', text: 'Soldering Stations & Irons', route: '/' },
+        { icon: 'forward', text: 'Soldering Tips', route: '/soldertips'},
         { icon: 'forward', text: 'Static Control' },
       ],
       items2: [
@@ -136,3 +142,13 @@
     },
   }
 </script>
+<style scoped>
+
+.v-list-item__title  {
+  text-decoration: none;
+  color: black;
+}
+.v-application a {
+  text-decoration: none;
+}
+</style>

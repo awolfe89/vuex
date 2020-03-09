@@ -4,6 +4,7 @@ import sniper from '@/components/sniper'
 import solderTips from '@/components/solderTips'
 import wireSolder from '@/components/wireSolder'
 import home from '@/components/home'
+import About from '@/components/about'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/wiresolder',
       name: 'Wire Solder',
       component: wireSolder
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })

@@ -46,6 +46,7 @@ v-for='item in items'
             <v-card-title class="headline">{{$route.name}}</v-card-title>
             <v-card-subtitle class='butt'>Solder Tips from Pace, HAKKO, JBC and More.</v-card-subtitle>
 
+
             <v-divider></v-divider>
             <v-card-subtitle>Filters:</v-card-subtitle>
             <v-card-actions>
@@ -138,7 +139,7 @@ v-for='item in items'
      <!--- END PRODUCT CARDS----> 
  <div class="text-center">
     <v-pagination
-      v-model="page"
+    
       :length="6"
     ></v-pagination>
   </div>
@@ -151,6 +152,7 @@ v-for='item in items'
 <script>
 import API from '@/lib/API'
 import { writeProductData, downToCSV } from '@/lib/write'
+import queryAndFilter from '@/lib/Queries'
 
 export default {
   name: 'Solder Tips',
@@ -215,6 +217,7 @@ export default {
         console.log(error)
       }
     },
+ 
     saveToCSV() {
       let rows = [
         [
