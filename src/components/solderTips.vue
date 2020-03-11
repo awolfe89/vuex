@@ -45,7 +45,11 @@
       <v-spacer></v-spacer>
 <h4>Showing {{fromNums}} To {{toNums}} Of {{totalNums}} Entries</h4>
       <v-spacer></v-spacer>
-
+      <v-select
+        v-model="searchBrand"
+        :items="brandsList"
+        @change="seachChange"
+        />
         <!--- SHOW PAGE NUM FORM AND BRANDS LIST HERE --->
 
     <!---SHOW PAGE NUM FORM AND BRANDS LIST HERE--->
@@ -81,10 +85,7 @@
 
             <v-card-subtitle v-text="product.brand.name"></v-card-subtitle>
             <v-card-subtitle>List: {{product.pricing.unitListPriceDisplay}}</v-card-subtitle>
-      
-
-
-                  <v-card-actions>
+              <v-card-actions>
                     <router-link 
                       class='secondary-content'
                       v-bind:to="{name: 'Product', params: {id: product.id}}"
@@ -165,6 +166,7 @@ export default {
       this.loadData(1,20,"","")
       if(!this.isAdmin) {
         API.getBrandsList("Solder Tips").then(brands => {
+          brands.unshift("");
           this.brandsList = brands
         })
       }
@@ -225,7 +227,7 @@ export default {
       const filename = 'sniper_product_' + new Date().toLocaleString()
       downToCSV(rows, filename)
     },
-        loadData(page,pageNums,searchBrand,searchText) {
+    loadData(page,pageNums,searchBrand,searchText) {
       this.loading = true
       API.getSolderTips(page,pageNums,searchBrand,searchText).then(products => {
         if(this.isAdmin) {
