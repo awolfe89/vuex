@@ -1,7 +1,20 @@
 <template>
     <div class="all">
         <p>Poop</p>
-       {{listing[0].brand.name}}
+        <v-card-title
+            v-if="product.pageTitle"
+            class="headline"
+            v-text="product.pageTitle"
+        ></v-card-title>
+        <!---- ELSE --->
+        <v-card-title
+            v-else 
+            class="headline"
+        >{{product.brand.name}}{{product.shortDescription}}</v-card-title>
+
+        <v-card-subtitle v-text="product.brand.name"></v-card-subtitle>
+        <v-card-subtitle>List: {{product.pricing.unitListPriceDisplay}}</v-card-subtitle>
+
     </div>
 </template>
 
@@ -12,7 +25,7 @@ export default {
     name: 'Product',
     data(){
         return{
-            listing: [],
+            product: {},
         }
     },
     mounted(){
@@ -23,8 +36,8 @@ export default {
         load(id){
             API.getProduct(id)
             .then((result) => {
-                this.listing = result.listing
                 console.log (result)
+                this.product = result
             })
         }
     },

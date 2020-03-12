@@ -56,5 +56,14 @@ export default {
         }) 
         return brandsList
       })
+  },
+  getProduct(id) {
+    return db
+      .collection("Solder Tips")
+      .doc(id)
+      .get()
+      .then(function(doc){
+        return doc.data()
+      })
   }
 }

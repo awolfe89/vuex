@@ -21,5 +21,13 @@ export default {
 
   getBrandsList(collectionName) {
     return FIRESTORE.getBrandsList(collectionName)
+  },
+  getProduct(id) {
+    if (process.env.MODE === 'manage') {
+      return ONLINE.getProduct(id)
+    } else {
+      return FIRESTORE.getProduct(id)
+    }
+
   }
 }
