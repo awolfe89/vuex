@@ -1,17 +1,25 @@
-//Assets
+// Assets
 import Vue from 'vue'
 import Router from 'vue-router'
 
-//Product Listing Pages
+// Product Listing Pages
 import sniper from '@/components/sniper'
 import solderTips from '@/components/solderTips'
 import wireSolder from '@/components/wireSolder'
 
-//General Site Links
+// ADHESIVES
+import Spray_Adhesives from '@/components/AdhesivePages/SprayAdhesives'
+import dispensingNeedles from '@/components/AdhesivePages/dispensingNeedles'
+import sealants from '@/components/AdhesivePages/sealants'
+import tape from '@/components/AdhesivePages/tape'
+import polyimideTape from '@/components/AdhesivePages/polyimideTape'
+import splicingTape from '@/components/AdhesivePages/splicingTape'
+
+// General Site Links
 import home from '@/components/home'
 import About from '@/components/about'
 
-// Main Category Landing Pages 
+// Main Category Landing Pages
 import Benches from '@/components/landingPages/Benches'
 import Adhesives from '@/components/landingPages/Adhesives'
 import Chemicals from '@/components/landingPages/Chemicals'
@@ -27,7 +35,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    //General Site Links
+    // General Site Links
     {
       path: '/',
       name: 'Home',
@@ -38,7 +46,7 @@ export default new Router({
       name: 'About',
       component: About
     },
-    //Product Pages 
+    // Product Pages
     {
       path: '/fluxremovers',
       name: 'Flux Removers',
@@ -54,8 +62,38 @@ export default new Router({
       name: 'Wire Solder',
       component: wireSolder
     },
-
-    //Main Category Landing Pages
+    // ADHESIVES
+    {
+      path: '/spray-adhesives',
+      name: 'Spray_Adhesives',
+      component: Spray_Adhesives
+    },
+    {
+      path: '/dispensing-needles',
+      name: 'dispensingNeedles',
+      component: dispensingNeedles
+    },
+    {
+      path: '/sealants',
+      name: 'sealants',
+      component: sealants
+    },
+    {
+      path: '/anti-static-tape',
+      name: 'tape',
+      component: tape
+    },
+    {
+      path: '/polyimide-tape',
+      name: 'polyimideTape',
+      component: polyimideTape
+    },
+    {
+      path: '/splicing-tape',
+      name: 'splicingTape',
+      component: splicingTape
+    },
+    // Main Category Landing Pages
     {
       path: '/adhesives',
       name: 'Adhesives',
@@ -105,6 +143,6 @@ export default new Router({
       path: '/esd-control',
       name: 'ESD',
       component: ESD
-    },
+    }
   ]
 })

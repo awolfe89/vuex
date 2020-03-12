@@ -15,22 +15,22 @@
         <v-col
           v-for="card in cards"
           :key="card.title"
-          :cols="card.flex"
+          :cols="card.flex"       
         >
-          <v-card>
+          <v-card :to='card.route'>
             <v-img
               :src="card.src"
               class="black--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="100px"
+              height="100px"   
             >
-              <v-card-title v-text="card.title"></v-card-title>
+              <v-card-title v-text="card.title" ></v-card-title>
             </v-img>
 
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <v-btn icon color='blue'>
+              <v-btn icon color='blue' :to='card.route'>
                 <v-icon>arrow_forward</v-icon>
               </v-btn>
             </v-card-actions>
@@ -50,15 +50,15 @@
   export default {
     data: () => ({
       cards: [
-        { title: 'Spray Adhesives', flex: 12 },
-        { title: 'Dispensing Needles', flex: 12 },
-        { title: 'Sealants', flex: 12 },
-        { title: 'Anti Static Tape', flex: 12 },
-        { title: 'Double Sided Tape', flex: 12 },
-        { title: 'Polyimide Tape', flex: 12 },
-        { title: 'Splicing Tape', flex: 12 },
+        { title: 'Spray Adhesives', flex: 12, route: '/spray-adhesives' },
+        { title: 'Dispensing Needles', flex: 12, route: '/dispensing-needles' },
+        { title: 'Sealants', flex: 12, route: '/sealants'  },
+        { title: 'Anti Static Tape', flex: 12, route: '/anti-static-tape'  },
+        { title: 'Polyimide Tape', flex: 12, route: '/polyimide-tape'  },
+        { title: 'Splicing Tape', flex: 12, route: '/splicing-tape'  },
       ],
     }),
+
   }
   </script>
 
