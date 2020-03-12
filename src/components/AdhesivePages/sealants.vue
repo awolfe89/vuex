@@ -40,7 +40,7 @@
     >
 
 
-      <v-toolbar-title>Filters</v-toolbar-title>
+      <v-toolbar-title>Sealants</v-toolbar-title>
 
       <v-spacer></v-spacer>
 <h4>Showing {{fromNums}} To {{toNums}} Of {{totalNums}} Entries</h4>
@@ -86,7 +86,7 @@
             <v-card-subtitle v-text="product.brand.name"></v-card-subtitle>
             <v-card-subtitle>List: {{product.pricing.unitListPriceDisplay}}</v-card-subtitle>
               <v-card-actions>
-                   <router-link 
+                  <!--  <router-link 
                       class='secondary-content'
                       v-bind:to="{name: 'Product', params: {id: product.id}}"
                       >
@@ -96,7 +96,7 @@
                       View
                     </v-btn>
                     </router-link>
-                       
+                        -->
                     <v-btn
                       color="blue"
                       text
@@ -108,7 +108,6 @@
             </div>
           </v-card>
         </v-col>
-      </v-row>
     </v-container>
      <!--- END PRODUCT CARDS----> 
  <div class="text-center">
@@ -129,7 +128,7 @@ import { writeProductData, downToCSV } from '@/lib/write'
 
 
 export default {
-  name: 'Solder_Tips',
+  name: 'sealants',
   inject: ['theme'],
   data() {
     
@@ -165,7 +164,7 @@ export default {
     load() {
       this.loadData(1,20,"","")
       if(!this.isAdmin) {
-        API.getBrandsList("Solder Tips").then(brands => {
+        API.getBrandsList("sealants").then(brands => {
           brands.unshift("");
           this.brandsList = brands
         })
@@ -176,7 +175,7 @@ export default {
       try {
         let count = 0
         this.products.map(product => {
-          writeProductData('Solder Tips', product)
+          writeProductData('sealants', product)
           this.$set(this, 'message', `${++count} products added`)
         })
         this.$set(this, 'message', '')
@@ -229,7 +228,7 @@ export default {
     },
     loadData(page,pageNums,searchBrand,searchText) {
       this.loading = true
-      API.getSolderTips(page,pageNums,searchBrand,searchText).then(products => {
+      API.getSealants(page,pageNums,searchBrand,searchText).then(products => {
         if(this.isAdmin) {
           this.products = products
         } else { // nomal mode

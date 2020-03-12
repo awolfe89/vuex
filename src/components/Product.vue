@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         load(id){
-            API.getProduct(id)
+            API.getProductSolderTip(id)
             .then((result) => {
                 console.log (result)
                 this.product = result
