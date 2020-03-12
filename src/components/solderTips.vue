@@ -86,17 +86,17 @@
             <v-card-subtitle v-text="product.brand.name"></v-card-subtitle>
             <v-card-subtitle>List: {{product.pricing.unitListPriceDisplay}}</v-card-subtitle>
               <v-card-actions>
-                    <router-link 
+                  <!--  <router-link 
                       class='secondary-content'
                       v-bind:to="{name: 'Product', params: {id: product.id}}"
                       >
                     <v-btn color="blue" text >
-                    
+                   
       
                       View
                     </v-btn>
                     </router-link>
-                       
+                        -->
                     <v-btn
                       color="blue"
                       text
