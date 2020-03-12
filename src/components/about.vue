@@ -40,11 +40,11 @@
           class="headline grey lighten-2"
           primary-title
         >
-          Privacy Policy
+          Introduction
         </v-card-title>
 
         <v-card-text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Welcome to my Vue.JS app. This app began as an excersize and was originally simply meant to test out some a new framework and grew from there. Feel free to browse the 10,000 products and see the amazing things that Vue can do.
         </v-card-text>
 
         <v-divider></v-divider>
@@ -56,7 +56,7 @@
             text
             @click="dialog = false"
           >
-            I accept
+            Cool!
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -96,14 +96,14 @@
         {
 
         cards: [
-            { title: 'Introduction', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-            { title: 'Technologies Used', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-            { title: 'How to Launch', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+            { title: 'Introduction', src: 'https://www.bacancytechnology.com/blog/wp-content/uploads/2019/04/vuejs-plugins-blog-banner.jpg', flex: 12 },
+
         ],
         items: [
-            { title: 'Functionality', text: 'poop'},
-            { title: 'Project Status', text: 'poop'},
-            { title: 'Additional Information', text: 'poop'},
+            { title: 'Technologies Used', text: 'Front End: Vue.JS, Vuetify/Materialize CSS, Skeleton Loading, Lazy Loading, Backend: Serverless (Firebase) Additional: Took advantage of an open API to gather tons of JSON data'},         
+            { title: 'Functionality', text: 'Call to API -> Format & Call Data to this site -> Admin can push to dB -> DL all data to CSV'},
+            { title: 'Project Status', text: 'While still new, this project is nearly fully operational. There are a ton of things I would like to do from an Admin perspective such as an admin dashboard, setting up cron jobs to run for updates, caching, and moving the dB from Firestore to something less "real-time"'},
+            { title: 'Additional Information', text: 'This project could be replicated across many sites, dBs. Many eCommerce platforms have this data "hole" and some websites cost $350,000 or more and still have this vulnerability. Watch your network traffic folks!'},
         ],
         dialog: false,
     }),

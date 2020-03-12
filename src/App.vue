@@ -125,7 +125,7 @@
         { icon: 'forward', text: 'Soldering Materials', route: '/soldering-materials' },
         { icon: 'forward', text: 'Soldering Stations & Irons', route: '/soldering-stations-irons' },
         { icon: 'forward', text: 'Soldering Tips', route: '/soldertips'},
-        { icon: 'forward', text: 'Static Control' },
+        { icon: 'forward', text: 'ESD Control', route: '/esd-control' },
       ],
       items2: [
         { picture: 28, text: 'Joseph' },

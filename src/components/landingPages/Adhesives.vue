@@ -50,7 +50,7 @@
   export default {
     data: () => ({
       cards: [
-        { title: 'Adhesives', flex: 12 },
+        { title: 'Spray Adhesives', flex: 12 },
         { title: 'Dispensing Needles', flex: 12 },
         { title: 'Sealants', flex: 12 },
         { title: 'Anti Static Tape', flex: 12 },

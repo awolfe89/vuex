@@ -3,7 +3,7 @@
 
 
     <v-toolbar color="indigo" dark>
-    <v-toolbar-title>Soldering Stations &#38; Soldering Irons</v-toolbar-title>
+    <v-toolbar-title>ESD Control</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -50,16 +50,16 @@
   export default {
     data: () => ({
       cards: [
-        { title: 'Soldering Stations', flex: 12 },
-        { title: 'Soldering Irons', flex: 12 },
-        { title: 'Soldering Iron Accessories', flex: 12 },
-        { title: 'Soldering Tips', flex: 12, route: '/soldertips'},
-        { title: 'Fume Extraction', flex: 12 },
-        { title: 'Fume Extractor Accessories', flex: 12 },
-        { title: 'Desoldering Irons', flex: 12 },
-        { title: 'Desoldering Braid', flex: 12 },
-        { title: 'Hot Air Nozzles', flex: 12 },
-        { title: 'Flux Removers', flex: 12, route: '/fluxremovers'},
+        { title: 'ESD Benchtop Mats', flex: 12 },
+        { title: 'ESD Document Holders', flex: 12 },
+        { title: 'ESD Safe Trays', flex: 12, },
+        { title: 'Wrist Straps', flex: 12 },
+        { title: 'Nitrile Gloves', flex: 12 },
+        { title: 'In-Plant Handlers', flex: 12 },
+        { title: 'Caution Labels', flex: 12 },
+        { title: 'Static Shielding Bags', flex: 12 },
+        { title: 'Moisture Barrier Bags', flex: 12 },
+        { title: 'Workstation Monitors', flex: 12, route: '/fluxremovers'},
       ],
     }),
   }

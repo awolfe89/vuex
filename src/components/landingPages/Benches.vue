@@ -53,7 +53,7 @@
         { title: 'Chairs', flex: 12 },
         { title: 'Stools', flex: 12 },
         { title: 'Workbenches', flex: 12 },
-        { title: 'Workbench Shelves', flex: 12 },
+
       ],
     }),
   }

@@ -21,6 +21,7 @@ import Labels from '@/components/landingPages/Labels'
 import Magnification_Lighting from '@/components/landingPages/magnificationLighting'
 import Soldering_Materials from '@/components/landingPages/SolderingMaterials'
 import Soldering_Stations from '@/components/landingPages/SolderingStations'
+import ESD from '@/components/landingPages/ESD'
 
 Vue.use(Router)
 
@@ -99,6 +100,11 @@ export default new Router({
       path: '/soldering-stations-irons',
       name: 'Soldering_Stations',
       component: Soldering_Stations
+    },
+    {
+      path: '/esd-control',
+      name: 'ESD',
+      component: ESD
     },
   ]
 })

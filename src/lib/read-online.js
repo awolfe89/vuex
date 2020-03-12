@@ -1,5 +1,5 @@
 /* eslint-disable eol-last */
-// flux removers..for now
+
 const CORS_URL = 'https://cors-anywhere.herokuapp.com/'
 const fluxRemoversUrl =
   'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=9d568b5a-77fc-4fc1-b19a-a5b20032b36e&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=151&searchWithin=&sort=0&page='
@@ -20,3 +20,132 @@ export default {
       .then(result => result.products)
   }
 }
+
+/*
+
+spray Adhesives
+const sprayAdhesivesURL ='https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=0f5c665b-1b9a-48d6-b892-a5b200327048&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=161&searchWithin=&sort=&page='
+
+Dispensing Needles
+const dispensingNeedles = 'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=817a439d-e777-4b5b-a157-a5b200327661&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=533&searchWithin=&sort=&page='
+
+Sealants
+
+Anti-static Tape
+
+Double Sided Tape
+
+Polyimide Tape
+
+Splicing Tape
+
+Chairs
+
+Stools
+
+Workbenches
+
+ESD brushes
+
+degreasers
+
+Solvents
+
+contact cleaners
+
+floor cleaners
+
+dusters
+
+fiber optic cleaners
+
+cleaning swabs
+
+cleaning wipes
+
+gloves
+
+shoe covers
+
+cleanroom chairs
+
+swabs
+
+wipes
+
+crimpers
+
+wire cutters
+
+cutters
+
+heat guns
+
+heat gun accessories
+
+pliers
+
+wire strippers
+
+torque screwdrivers
+
+printer labels
+
+thermal transfer labels
+
+signage
+
+task lights
+
+lighted magnifiers
+
+microscopes
+
+microscope accessories
+
+bar solder
+
+solder paste
+
+wire solder
+
+soldering stations
+
+soldering irons
+
+soldering iron accessories 
+
+soldering tips
+
+fume extraction
+
+fume extractor accessories
+
+desoldering irons
+
+desoldering braids
+
+hot air nozzles
+
+flux removers
+
+esd benchtop mats
+
+esd document holders
+
+esd safe trays
+
+wrist straps
+
+nitrile gloves
+
+in-plant handlers
+
+caution labels
+
+static shielding bags
+
+moisture barrier bags
+
+worksation monitors
+*/
