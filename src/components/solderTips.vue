@@ -46,6 +46,7 @@
 <h4>Showing {{fromNums}} To {{toNums}} Of {{totalNums}} Entries</h4>
       <v-spacer></v-spacer>
       <v-select
+        label='Brand'
         v-model="searchBrand"
         :items="brandsList"
         @change="seachChange"
@@ -61,8 +62,10 @@
 
     
 <!---- PRODUCT CARDS --->
-    <v-col v-for="product in products" :key="product.key" cols="12">
-      <v-card light>
+    <v-col v-for="product in products" :key="product.key" cols="12"
+    
+    >
+      <v-card light v-bind:to="{name: 'Product', params: {id: product.id}}">
         <div class="d-flex flex-no-wrap justify-space-between">
           <div>
             <v-avatar
@@ -76,6 +79,7 @@
               v-if="product.pageTitle"
               class="headline"
               v-text="product.pageTitle"
+              
             ></v-card-title>
             <!---- ELSE --->
               <v-card-title
@@ -108,7 +112,7 @@
             </div>
           </v-card>
         </v-col>
-      </v-row>
+      
     </v-container>
      <!--- END PRODUCT CARDS----> 
  <div class="text-center">

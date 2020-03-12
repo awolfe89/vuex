@@ -40,7 +40,7 @@
     >
 
 
-      <v-toolbar-title>Filters</v-toolbar-title>
+      <v-toolbar-title>Spray Adhesives</v-toolbar-title>
 
       <v-spacer></v-spacer>
 <h4>Showing {{fromNums}} To {{toNums}} Of {{totalNums}} Entries</h4>
