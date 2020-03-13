@@ -7,7 +7,7 @@ const fluxRemoversUrl =
 const solderTipsUrl =
   'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=61d6c890-2d5d-4194-97ec-a5b20032b0e7&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=200&searchWithin=&sort='
 const sprayAdhesivesUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=0f5c665b-1b9a-48d6-b892-a5b200327048&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort=&page='
+  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=0f5c665b-1b9a-48d6-b892-a5b200327048&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=161&searchWithin=&sort=&page='
 const dispensingNeedlesUrl =
   'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=817a439d-e777-4b5b-a157-a5b200327661&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='  
 const sealantsUrl =
@@ -66,7 +66,7 @@ export default {
 }
 
 /*
-Spray Adhesives - 161
+
 Dispensing Needles- 533 - currently only reading 5 due to Firebase quotas
 
 Sealants

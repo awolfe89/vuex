@@ -17,7 +17,7 @@
           :key="card.title"
           :cols="card.flex"
         >
-          <v-card>
+          <v-card :to='card.route'>
             <v-img
               :src="card.src"
               class="black--text align-end"
@@ -50,15 +50,15 @@
   export default {
     data: () => ({
       cards: [
-        { title: 'Soldering Stations', flex: 12 },
-        { title: 'Soldering Irons', flex: 12 },
-        { title: 'Soldering Iron Accessories', flex: 12 },
+        { title: 'Soldering Stations', flex: 12, route: '/' },
+        { title: 'Soldering Irons', flex: 12, route: '/' },
+        { title: 'Soldering Iron Accessories', flex: 12, route: '/'  },
         { title: 'Soldering Tips', flex: 12, route: '/soldertips'},
-        { title: 'Fume Extraction', flex: 12 },
-        { title: 'Fume Extractor Accessories', flex: 12 },
-        { title: 'Desoldering Irons', flex: 12 },
-        { title: 'Desoldering Braid', flex: 12 },
-        { title: 'Hot Air Nozzles', flex: 12 },
+        { title: 'Fume Extraction', flex: 12, route: '/'  },
+        { title: 'Fume Extractor Accessories', flex: 12, route: '/'  },
+        { title: 'Desoldering Irons', flex: 12, route: '/'  },
+        { title: 'Desoldering Braid', flex: 12, route: '/' },
+        { title: 'Hot Air Nozzles', flex: 12, route: '/'  },
         { title: 'Flux Removers', flex: 12, route: '/fluxremovers'},
       ],
     }),

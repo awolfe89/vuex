@@ -40,7 +40,7 @@
     >
 
 
-      <v-toolbar-title>Filters</v-toolbar-title>
+      <v-toolbar-title>Flux Removers</v-toolbar-title>
 
       <v-spacer></v-spacer>
 <h4>Showing {{fromNums}} To {{toNums}} Of {{totalNums}} Entries</h4>
@@ -133,7 +133,7 @@ import { writeProductData, downToCSV } from '@/lib/write'
 
 
 export default {
-  name: 'Solder_Tips',
+  name: 'fluxRemovers',
   inject: ['theme'],
   data() {
     
@@ -169,7 +169,7 @@ export default {
     load() {
       this.loadData(1,20,"","")
       if(!this.isAdmin) {
-        API.getBrandsList("Solder Tips").then(brands => {
+        API.getBrandsList("fluxRemovers").then(brands => {
           brands.unshift("");
           this.brandsList = brands
         })
@@ -180,7 +180,7 @@ export default {
       try {
         let count = 0
         this.products.map(product => {
-          writeProductData('Solder Tips', product)
+          writeProductData('fluxRemovers', product)
           this.$set(this, 'message', `${++count} products added`)
         })
         this.$set(this, 'message', '')
@@ -233,7 +233,7 @@ export default {
     },
     loadData(page,pageNums,searchBrand,searchText) {
       this.loading = true
-      API.getSolderTips(page,pageNums,searchBrand,searchText).then(products => {
+      API.getFluxRemovers(page,pageNums,searchBrand,searchText).then(products => {
         if(this.isAdmin) {
           this.products = products
         } else { // nomal mode

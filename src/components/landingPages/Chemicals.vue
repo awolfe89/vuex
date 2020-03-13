@@ -17,7 +17,7 @@
           :key="card.title"
           :cols="card.flex"
         >
-          <v-card>
+          <v-card :to='card.route'>
             <v-img
               :src="card.src"
               class="black--text align-end"
@@ -50,15 +50,16 @@
   export default {
     data: () => ({
       cards: [
-        { title: 'ESD Brushes', flex: 12 },
-        { title: 'Degreasers', flex: 12 },
-        { title: 'Solvents', flex: 12 },
-        { title: 'Contact Cleaners', flex: 12 },
-        { title: 'Floor Cleaner', flex: 12 },
-        { title: 'Dusters', flex: 12 },
-        { title: 'Fiber Optic Cleaners', flex: 12 },
-        { title: 'Cleaning Swabs', flex: 12 },
-        { title: 'Cleaning Wipes', flex: 12 },
+        { title: 'ESD Brushes', flex: 12, route:'/' },
+        { title: 'Flux Removers', flex: 12, route: '/fluxremovers'},
+        { title: 'Degreasers', flex: 12, route:'/'},
+        { title: 'Solvents', flex: 12, route:'/' },
+        { title: 'Contact Cleaners', flex: 12, route:'/' },
+        { title: 'Floor Cleaner', flex: 12, route:'/' },
+        { title: 'Dusters', flex: 12, route:'/' },
+        { title: 'Fiber Optic Cleaners', flex: 12, route:'/' },
+        { title: 'Cleaning Swabs', flex: 12, route:'/' },
+        { title: 'Cleaning Wipes', flex: 12, route:'/' },
       ],
     }),
   }

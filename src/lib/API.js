@@ -23,9 +23,12 @@ export default {
   },
 
   getSprayAdhesives(page, pageLength, searchBrand, searchText) {
-    return ONLINE.getSprayAdhesives(page)
+    if (process.env.MODE === 'manage') {
+      return ONLINE.getSprayAdhesives(page)
+    } else {
+      return FIRESTORE.getData('Spray Adhesives', page, pageLength, searchBrand, searchText)
+    }
   },
-
   getDispensingNeedles(page, pageLength, searchBrand, searchText) {
     return ONLINE.getDispensingNeedles(page)
   },
@@ -48,5 +51,11 @@ export default {
       return FIRESTORE.getProductSolderTip(id)
     }
   },
-
+  getProductSprayAdhesive(id) {
+    if (process.env.MODE === 'manage') {
+      return ONLINE.getProductSprayAdhesive(id)
+    } else {
+      return FIRESTORE.getProductSprayAdhesive(id)
+    }
+  }
 }

@@ -3,9 +3,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Product Listing Pages
-import sniper from '@/components/sniper'
+import fluxremovers from '@/components/fluxRemovers'
 import solderTips from '@/components/solderTips'
 import wireSolder from '@/components/wireSolder'
+import SprayAdhesives from '@/components/ProductSprayAdhesive'
 
 // ADHESIVES
 import Spray_Adhesives from '@/components/AdhesivePages/SprayAdhesives'
@@ -52,7 +53,7 @@ export default new Router({
     {
       path: '/fluxremovers',
       name: 'Flux Removers',
-      component: sniper
+      component: fluxremovers
     },
     {
       path: '/soldertips',
@@ -150,6 +151,11 @@ export default new Router({
       path: '/product/:id',
       name: 'Product',
       component: Product
+    },
+    {
+      path: '/Spray-Adhesives/:id',
+      name: 'SprayAdhesives',
+      component: SprayAdhesives
     }
   ]
 })

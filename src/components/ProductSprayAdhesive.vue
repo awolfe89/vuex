@@ -32,6 +32,14 @@
             class="flex-column ma-0 fill-height"
             justify="center"
           >
+            <v-col >
+              <ul>
+                <li>List Price {{product.pricing.unitListPriceDisplay}}</li>
+                <li>Sale Price ${{product.pricing.actualPrice}}</li>
+               
+                </ul>
+            </v-col>
+
             <v-col class="px-0">
              
             </v-col>
@@ -108,7 +116,7 @@
 import API from '@/lib/API'
 
 export default {
-    name: 'Product',
+    name: 'SprayAdhesives',
     data(){
         return{
             product: {},
@@ -127,7 +135,7 @@ export default {
           },
 
     load(id){     
-        API.getProductSolderTip(id)
+        API.getProductSprayAdhesive(id)
           .then((result) => {
           console.log (result)
           this.product = result
@@ -154,14 +162,7 @@ export default {
 }
 
 .description {
-    margin-left: 5%;
+    margin: 5%;
     padding-bottom: 3vh;
-}
-.subHead {
-  margin-left: 4%;
-}
-
-.headline{
-  text-decoration: underline;
 }
 </style>

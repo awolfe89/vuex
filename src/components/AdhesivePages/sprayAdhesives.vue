@@ -62,7 +62,7 @@
     
 <!---- PRODUCT CARDS --->
     <v-col v-for="product in products" :key="product.key" cols="12">
-      <v-card light>
+      <v-card light v-bind:to="{name: 'SprayAdhesives', params: {id: product.id}}">
         <div class="d-flex flex-no-wrap justify-space-between">
           <div>
             <v-avatar
@@ -70,7 +70,7 @@
               size="200"
               tile
             >
-            <v-img :src="product.mediumImagePath"></v-img>
+            <v-img :src="product.largeImagePath"></v-img>
             </v-avatar>
             <v-card-title
               v-if="product.pageTitle"
@@ -164,7 +164,7 @@ export default {
     load() {
       this.loadData(1,20,"","")
       if(!this.isAdmin) {
-        API.getBrandsList("Solder Tips").then(brands => {
+        API.getBrandsList("Spray Adhesives").then(brands => {
           brands.unshift("");
           this.brandsList = brands
         })
