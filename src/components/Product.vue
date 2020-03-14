@@ -116,8 +116,8 @@ export default {
         }
     },
     mounted(){
-        const { id } = this.$route.params;
-        this.load(id)
+      const { id, collection } = this.$route.params;
+      this.load(id, collection)
     },
     methods: {
     total: function(product){
@@ -126,8 +126,10 @@ export default {
          return value
           },
 
-    load(id){     
-        API.getProductSolderTip(id)
+    load(id,collection){     
+      console.log(id)
+      console.log(collection)
+        API.getProduct(id,collection)
           .then((result) => {
           console.log (result)
           this.product = result

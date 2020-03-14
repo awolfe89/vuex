@@ -57,9 +57,9 @@ export default {
         return brandsList
       })
   },
-  getProductSolderTip(id) {
+  getProduct(id,collection) {
     return db
-      .collection('Solder Tips')
+      .collection(collection)
       .doc(id)
       .get()
       .then(function(doc) {

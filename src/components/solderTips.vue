@@ -92,7 +92,7 @@
               <v-card-actions>
                    <router-link 
                       class='secondary-content'
-                      v-bind:to="{name: 'Product', params: {id: product.id}}"
+                      v-bind:to="{name: 'Product', params: {id: product.id,collection:'Solder Tips'}}"
                       >
                     <v-btn color="blue" text >
                    

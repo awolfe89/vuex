@@ -44,11 +44,11 @@ export default {
   getSplicingTape(page, pageLength, searchBrand, searchText) {
     return ONLINE.getSplicingTape(page)
   },
-  getProductSolderTip(id) {
+  getProduct(id,collection) {
     if (process.env.MODE === 'manage') {
       return ONLINE.getProductSolderTip(id)
     } else {
-      return FIRESTORE.getProductSolderTip(id)
+      return FIRESTORE.getProduct(id,collection)
     }
   },
   getProductSprayAdhesive(id) {
