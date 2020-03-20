@@ -180,8 +180,13 @@ export default {
                 } else {
                     this.products = products.dbData;
                     this.totalNums = products.totals;
-                    this.fromNums = (this.currentPageNum - 1) * this.pageNums + 1;
-                    this.toNums = this.fromNums + pageNums;
+                    if(this.totalNums>0) {
+                        this.fromNums = (this.currentPageNum - 1) * this.pageNums + 1;
+                        this.toNums = this.fromNums + this.products.length - 1;
+                    } else {
+                        this.fromNums = 0;
+                        this.toNums = 0;
+                    }
                     this.totalPages = Math.ceil(this.totalNums / pageNums);
                 }
                 this.loading = false;

@@ -51,7 +51,7 @@ const store = new Vuex.Store({
                 name: "ESD Brushes"
             }, {
                 id: "flux-removers",
-                name: "Flux Removers"
+                name: "fluxRemovers"
             }, {
                 id: "degreasers",
                 name: "Degreasers"
@@ -192,7 +192,7 @@ const store = new Vuex.Store({
                 name: "Hot Air Nozzles"
             }, {
                 id: "flux-removers",
-                name: "Flux Removers"
+                name: "fluxRemovers"
             }]
         }, {
             id: "solder-tips",
