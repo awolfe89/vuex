@@ -6,47 +6,34 @@
       app
       clipped
     >
-
       <v-list dense>
+		<v-list-item>
+			<v-list-item-action>
+				<v-icon>home</v-icon>
+			</v-list-item-action>
+			<v-list-item-content>
+				<router-link :to="{path: '/'}">
+					<v-list-item-title>Home</v-list-item-title>
+				</router-link>
+			</v-list-item-content>
+		</v-list-item>
         <v-list-item
-          v-for="item in items"
-          :key="item.text"
-          @click=""
+          v-for="(item, key) in items"
+          :key="key"
         >
-
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>forward</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-             <router-link :to='{path: item.route}'> 
-            <v-list-item-title>
-                            {{ item.text }} 
-                           
-         
-            </v-list-item-title>
+             <router-link :to="{name: 'Category', params: {id: item.id}}"> 
+				<v-list-item-title>
+				{{ item.name }} 
+				</v-list-item-title>
              </router-link >
           </v-list-item-content>
         </v-list-item>
      
         <v-subheader class="mt-3 grey--text text--darken-1">HELPFUL LINKS</v-subheader>
-        <!---
-        <v-list>
-          <v-list-item
-            v-for="item in items2"
-            :key="item.text"
-            @click=""
-          >
-            <v-list-item-avatar>
-              <img
-                :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`"
-                alt=""
-              >
-            </v-list-item-avatar>
-        
-            <v-list-item-title v-text="item.text"></v-list-item-title>
-          </v-list-item>
-        </v-list>
-        ---->
         <v-list-item
           class="mt-3"
           @click=""
@@ -94,55 +81,45 @@
     </v-app-bar>
 
     <v-content>
-
-
-              <router-view  class="container" />
-
-
-  
+      <router-view  class="container" />
     </v-content>
   </v-app>
 </div>
 </template>
 
 <script>
-  export default {
-    name: 'App',
-    props: {
-      source: String,
-    },
-    data: () => ({
-      drawer: null,
-      items: [
-        { icon: 'home', text: 'Home', route: '/' },
-        { icon: 'forward', text: 'Adhesives', route: '/adhesives'},
-        { icon: 'forward', text: 'Benches & Seating', route: '/benches-and-seating' },
-        { icon: 'forward', text: 'Chemicals & Cleaning', route: '/chemicals-and-cleaning' },
-        { icon: 'forward', text: 'Cleanroom', route: '/cleanroom' },
-        { icon: 'forward', text: 'Tools', route: '/tools'},
-        { icon: 'forward', text: 'Labels', route: '/labels' },
-        { icon: 'forward', text: 'Magnification & Lighting', route: '/magnification-and-lighting'},
-        { icon: 'forward', text: 'Soldering Materials', route: '/soldering-materials' },
-        { icon: 'forward', text: 'Soldering Stations & Irons', route: '/soldering-stations-irons' },
-        { icon: 'forward', text: 'Soldering Tips', route: '/soldertips'},
-        { icon: 'forward', text: 'ESD Control', route: '/esd-control' },
-      ],
-      items2: [
-        { picture: 28, text: 'Joseph' },
-        { picture: 38, text: 'Apple' },
-        { picture: 48, text: 'Xbox Ahoy' },
-        { picture: 58, text: 'Nokia' },
-        { picture: 78, text: 'MKBHD' },
-      ],
-    }),
-    created () {
-      this.$vuetify.theme.dark = false
-    },
+import API from '@/lib/API'
+export default {
+  name: 'App',
+  props: {
+    source: String
+  },
+  data: () => ({
+    drawer: null,
+    // items: [
+    //   { icon: 'home', text: 'Home', route: '/' },
+    //   { icon: 'forward', text: 'Adhesives', route: '/adhesives' },
+    //   { icon: 'forward', text: 'Benches & Seating', route: '/benches-and-seating' },
+    //   { icon: 'forward', text: 'Chemicals & Cleaning', route: '/chemicals-and-cleaning' },
+    //   { icon: 'forward', text: 'Cleanroom', route: '/cleanroom' },
+    //   { icon: 'forward', text: 'Tools', route: '/tools' },
+    //   { icon: 'forward', text: 'Labels', route: '/labels' },
+    //   { icon: 'forward', text: 'Magnification & Lighting', route: '/magnification-and-lighting' },
+    //   { icon: 'forward', text: 'Soldering Materials', route: '/soldering-materials' },
+    //   { icon: 'forward', text: 'Soldering Stations & Irons', route: '/soldering-stations-irons' },
+    //   { icon: 'forward', text: 'Soldering Tips', route: '/soldertips' },
+    //   { icon: 'forward', text: 'ESD Control', route: '/esd-control' }
+	// ],
+	items: []
+  }),
+  created() {
+	this.$vuetify.theme.dark = false
+	this.items = this.$store.state.categories;
   }
+}
 </script>
 <style scoped>
-
-.v-list-item__title  {
+.v-list-item__title {
   text-decoration: none;
   color: black;
 }

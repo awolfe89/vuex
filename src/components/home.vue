@@ -10,35 +10,6 @@
       transition="fade-transition"
     ></v-carousel-item>
   </v-carousel>
-<!--- OLD INFO, BUT NOTICE THE PUSH TO FIRESTORE OPTIONS 
-    <div class="list-group">
-      <button
-        type="button"
-        class="list-group-item list-group-item-action"
-        v-bind:class="activeType == 'Flux Removers' ? 'active' : ''"
-        @click="pushToFirestore('Flux Removers')"
-      >
-        Flux Removers
-      </button>
-      <button
-        type="button"
-        class="list-group-item list-group-item-action"
-        v-bind:class="activeType == 'Wire Solder' ? 'active' : ''"
-      >
-        Wire Solder
-      </button>
-      <button
-        type="button"
-        class="list-group-item list-group-item-action"
-        v-bind:class="activeType == 'Solder Tips' ? 'active' : ''"
-        @click="pushToFirestore('Solder Tips')"
-      >
-        Solder Tips
-      </button>
-      <button type="button" class="list-group-item list-group-item-action">ESD Bags</button>
-      <button type="button" class="list-group-item list-group-item-action">Soldering Stations</button>
-    </div>
---->
 <h2 class="subHead">Top Categories</h2>
 
      <v-col cols="12">
@@ -208,6 +179,8 @@ export default {
 
       
     }
+  },
+  created() {
   },
   methods: {
     pushToFirestore(type) {

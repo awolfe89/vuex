@@ -44,6 +44,21 @@ export default {
   getSplicingTape(page, pageLength, searchBrand, searchText) {
     return ONLINE.getSplicingTape(page)
   },
+  getProductSprayAdhesive(id) {
+    if (process.env.MODE === 'manage') {
+      return ONLINE.getProductSprayAdhesive(id)
+    } else {
+      return FIRESTORE.getProductSprayAdhesive(id)
+    }
+  },
+  // addition function
+  getProductsByCollection(collectionName, page, pageLength, searchBrand, searchText) {
+    if (process.env.MODE === 'manage') {
+      return;
+    } else {
+      return FIRESTORE.getData(collectionName, page, pageLength, searchBrand, searchText);
+    }
+  },
   getProduct(id,collection) {
     if (process.env.MODE === 'manage') {
       return ONLINE.getProductSolderTip(id)
@@ -51,11 +66,4 @@ export default {
       return FIRESTORE.getProduct(id,collection)
     }
   },
-  getProductSprayAdhesive(id) {
-    if (process.env.MODE === 'manage') {
-      return ONLINE.getProductSprayAdhesive(id)
-    } else {
-      return FIRESTORE.getProductSprayAdhesive(id)
-    }
-  }
 }

@@ -32,11 +32,15 @@ import Soldering_Materials from '@/components/landingPages/SolderingMaterials'
 import Soldering_Stations from '@/components/landingPages/SolderingStations'
 import ESD from '@/components/landingPages/ESD'
 
-import Product from '@/components/Product'
+import Category from '@/components/Category'
+import Products from '@/components/Products'
+import ProductDetail from '@/components/ProductDetail'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
+  base: '/',
   routes: [
     // General Site Links
     {
@@ -147,15 +151,29 @@ export default new Router({
       name: 'ESD',
       component: ESD
     },
-    {
-      path: '/product/:id',
-      name: 'Product',
-      component: Product
-    },
+    // {
+    //   path: '/product/:id',
+    //   name: 'Product',
+    //   component: Product
+    // },
     {
       path: '/Spray-Adhesives/:id',
       name: 'SprayAdhesives',
       component: SprayAdhesives
+    },
+    {
+      path: '/categories/:id',
+      name: 'Category',
+      component: Category
+    },
+    {
+      path: '/products/:id',
+      name: 'Products',
+      component: Products
+    }, {
+      path: '/products/:collection/:id',
+      name: 'ProductDetail',
+      component: ProductDetail
     }
   ]
 })
