@@ -29,13 +29,13 @@ export default {
       return FIRESTORE.getData('Spray Adhesives', page, pageLength, searchBrand, searchText)
     }
   },
-  getDispensingNeedles(page, pageLength, searchBrand, searchText) {
-    return ONLINE.getDispensingNeedles(page)
+  getDispensingNeedles() {
+    return ONLINE.getDispensingNeedles()
   },
   getSealants(page, pageLength, searchBrand, searchText) {
     return ONLINE.getSealants(page)
   },
-  getTape(page, pageLength, searchBrand, searchText) {
+  getTape(page) {
     return ONLINE.getTape(page)
   },
   getPolyimideTape(page, pageLength, searchBrand, searchText) {
@@ -66,4 +66,5 @@ export default {
       return FIRESTORE.getProduct(id,collection)
     }
   },
+
 }

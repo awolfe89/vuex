@@ -49,7 +49,7 @@
                                 </div>
                                 <v-card-actions class="d-block text-right">
                                     <v-btn outlined small tile color="indigo" :to="{name: 'ProductDetail', params: {id: product.id, collection: $route.params.id}}">View</v-btn>
-                                    <v-btn outlined small tile color="success">Buy Now</v-btn>
+                                 <!--   <v-btn outlined small tile color="success">Buy Now</v-btn> -->
                                 </v-card-actions>
                             </div>
                         </div>

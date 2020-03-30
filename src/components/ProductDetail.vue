@@ -9,16 +9,9 @@
                 ></v-skeleton-loader>
             </v-sheet>
         </div>
+        
         <template v-else>
-            <v-app-bar dark
-                color="pink"
-                height='auto'
-            >
-                <v-toolbar-title class='text-wrap'>{{product.brand.name}} {{product.shortDescription}}</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-toolbar-title >${{product.pricing.actualPrice}}</v-toolbar-title >
-            </v-app-bar>
-            <div class='productImage'>
+                        <div class='productImage'>
                 <v-card class="d-inline-block mx-auto">
                     <v-container>
                         <v-row justify="space-between">
@@ -27,6 +20,7 @@
                                 width="300"
                                 :src="product.largeImagePath"
                             ></v-img>
+                          <!--  <v-btn large color="#F08122">Buy Now</v-btn> -->
                             </v-col>
 
                             <v-col
@@ -38,11 +32,11 @@
                                 justify="center"
                             >
                                 <v-col class="px-0">
-                                
+                                    
                                 </v-col>
 
                                 <v-col class="px-0">
-                                
+                                    
                                 </v-col>
                             </v-row>
                             </v-col>
@@ -50,10 +44,19 @@
                     </v-container>
                 </v-card>
             </div>
+            <v-app-bar dark
+                color="red"
+                height='auto'
+            >
+                <v-toolbar-title class='text-wrap'>{{product.brand.name}} {{product.shortDescription}}</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-toolbar-title >${{product.pricing.actualPrice}}</v-toolbar-title >
+            </v-app-bar>
+
             <v-container>
                 <v-row dense>
                     <v-col cols="12">
-                    <v-card color="#385F73" dark>
+                    <v-card color="#C9CDD6" light>
                         <v-card-title class="headline">Details</v-card-title>
                         <h3 class='subHead'>Pricing</h3>
                         <ul class='description'> 

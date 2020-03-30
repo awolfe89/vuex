@@ -66,13 +66,4 @@ export default {
         return doc.data()
       })
   },
-  getProductSprayAdhesive(id) {
-    return db
-      .collection('Spray Adhesives')
-      .doc(id)
-      .get()
-      .then(function(doc) {
-        return doc.data()
-      })
-  }
 }

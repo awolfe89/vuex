@@ -11,6 +11,7 @@ const store = new Vuex.Store({
             children: [{
                 id: "spray-adhesives",
                 name: "Spray Adhesives",
+                categoryId: '27261e88-8d06-4dc4-92cd-a5b20032a09b'
             }, {
                 id: "dispensing-needles",
                 name: "Dispensing Needles"
