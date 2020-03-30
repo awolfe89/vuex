@@ -11,7 +11,7 @@
         </div>
         
         <template v-else>
-                        <div class='productImage'>
+            <div class='productImage'>
                 <v-card class="d-inline-block mx-auto">
                     <v-container>
                         <v-row justify="space-between">
@@ -48,7 +48,7 @@
                 color="red"
                 height='auto'
             >
-                <v-toolbar-title class='text-wrap'>{{product.brand.name}} {{product.shortDescription}}</v-toolbar-title>
+                <v-toolbar-title class='text-wrap'>{{product.brand ? product.brand.name : ''}} {{product.shortDescription}}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-title >${{product.pricing.actualPrice}}</v-toolbar-title >
             </v-app-bar>
@@ -87,9 +87,10 @@
                         <li>Shipping Height: {{product.shippingHeight}}</li> 
                         <li>Product Package: {{product.packDescription}}</li>
                         </ul>
+
                         <h3 class='subHead'>Info</h3>
                         <ul class='description'> 
-                            <li>Brand: {{product.brand.name}}</li>
+                            <li>Brand: {{product.brand ? product.brand.name : 'Empty'}}</li>
                             <li>Manufacturer SKU: {{product.manufacturerItem}}</li>
                             <li>Country: {{product.countryOfOrigin}}</li>
                             <li>MOQ: {{product.properties.hiscoMinimumOrderQty}}</li>
@@ -144,8 +145,9 @@ export default {
     load(id, collectionName){     
         API.getProduct(id,collectionName)
             .then((result) => {
-              this.product = result
+                console.log(result);
               this.loading = false;
+              this.product = result
             })
     }
   },

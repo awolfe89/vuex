@@ -4,5 +4,5 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  MODE: '"normal"' //normal | manage
+  MODE: '"manage"' //normal | manage
 })

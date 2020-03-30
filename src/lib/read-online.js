@@ -44,9 +44,10 @@ const stencilWipesUrl =
   
   
 const mainUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId='
+  'https://cors-anywhere.herokuapp.com/https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId='
 const endOfUrl =
-  '&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=4&searchWithin=&sort='  
+  '&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false';
+// &page=1&pageSize=4&searchWithin=&sort='  
   
   /* CATEGORY IDs 
 
@@ -132,105 +133,117 @@ ESD :
 
   */
   export default {
+    getData(categoryId, page, pageSize, searchText) {
+      return fetch(`${mainUrl}${categoryId}${endOfUrl}&page=${page}&pageSize=${pageSize}&searchWithin=${searchText}&sort=`)
+        .then(response => response.json())
+        .then(result => result)
+        .catch(error => console.log(error));
+    },
 
-  getFluxRemovers(page) {
-    return fetch(`${CORS_URL}${fluxRemoversUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-      .catch(error => console.log(error))
-  },
+    getProduct(productId) {
+      return fetch(`https://cors-anywhere.herokuapp.com/https://www.all-spec.com/api/v1/products/${productId}`)
+        .then(response => response.json())
+        .then(result => result.product)
+        .catch(error => console.log(error));
+    }
+  // getFluxRemovers(page) {
+  //   return fetch(`${CORS_URL}${fluxRemoversUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  //     .catch(error => console.log(error))
+  // },
 
-  getSolderTips(page) {
-    return fetch(`${CORS_URL}${solderTipsUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
+  // getSolderTips(page) {
+  //   return fetch(`${CORS_URL}${solderTipsUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
 
-  getSprayAdhesives(page) {
-    return fetch(`${CORS_URL}${sprayAdhesivesUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getDispensingNeedles(page) {
-    return fetch(`${CORS_URL}${dispensingNeedlesUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getSealants(page) {
-    return fetch(`${CORS_URL}${sealantsUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getTape(page) {
-    return fetch(`${CORS_URL}${tapeUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getPolyimideTape(page) {
-    return fetch(`${CORS_URL}${polyimideTapeUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getSplicingTape(page) {
-    return fetch(`${CORS_URL}${splicingTapeUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getChairs(page) {
-    return fetch(`${CORS_URL}${chairsUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getCleanroomWipes(page) {
-    return fetch(`${CORS_URL}${cleanroomWipesUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getBrushes(page) {
-    return fetch(`${CORS_URL}${brushesUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getDegreasers(page) {
-    return fetch(`${CORS_URL}${degreasersUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getSolvents(page) {
-    return fetch(`${CORS_URL}${solventsUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getContactCleaners(page) {
-    return fetch(`${CORS_URL}${contactCleanersUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getFloorCleaners(page) {
-    return fetch(`${CORS_URL}${floorCleanersUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getDusters(page) {
-    return fetch(`${CORS_URL}${dustersUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getFiberOpticCleaners(page) {
-    return fetch(`${CORS_URL}${fiberOpticCleanersUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getCleaningSwabs(page) {
-    return fetch(`${CORS_URL}${cleaningSwabsUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  },
-  getStencilWipes(page) {
-    return fetch(`${CORS_URL}${stencilWipesUrl}${page}`)
-      .then(response => response.json())
-      .then(result => result.products)
-  }
+  // getSprayAdhesives(page) {
+  //   return fetch(`${CORS_URL}${sprayAdhesivesUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getDispensingNeedles(page) {
+  //   return fetch(`${CORS_URL}${dispensingNeedlesUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getSealants(page) {
+  //   return fetch(`${CORS_URL}${sealantsUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getTape(page) {
+  //   return fetch(`${CORS_URL}${tapeUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getPolyimideTape(page) {
+  //   return fetch(`${CORS_URL}${polyimideTapeUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getSplicingTape(page) {
+  //   return fetch(`${CORS_URL}${splicingTapeUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getChairs(page) {
+  //   return fetch(`${CORS_URL}${chairsUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getCleanroomWipes(page) {
+  //   return fetch(`${CORS_URL}${cleanroomWipesUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getBrushes(page) {
+  //   return fetch(`${CORS_URL}${brushesUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getDegreasers(page) {
+  //   return fetch(`${CORS_URL}${degreasersUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getSolvents(page) {
+  //   return fetch(`${CORS_URL}${solventsUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getContactCleaners(page) {
+  //   return fetch(`${CORS_URL}${contactCleanersUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getFloorCleaners(page) {
+  //   return fetch(`${CORS_URL}${floorCleanersUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getDusters(page) {
+  //   return fetch(`${CORS_URL}${dustersUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getFiberOpticCleaners(page) {
+  //   return fetch(`${CORS_URL}${fiberOpticCleanersUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getCleaningSwabs(page) {
+  //   return fetch(`${CORS_URL}${cleaningSwabsUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // },
+  // getStencilWipes(page) {
+  //   return fetch(`${CORS_URL}${stencilWipesUrl}${page}`)
+  //     .then(response => response.json())
+  //     .then(result => result.products)
+  // }
 }
 
 /*

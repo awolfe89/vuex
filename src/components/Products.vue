@@ -13,14 +13,14 @@
     </div>
     <template v-else class="list-unstyled">
         <ul class="list-unstyled" v-if="isAdmin">
-            <button @click="save()"
+            <v-btn @click="save()"
                 type="button"
                 class="btn btn-secondary"
-            >Push to Firestore</button>
-            <button @click="saveToCSV()"
+            >Push to Firestore</v-btn>
+            <v-btn @click="saveToCSV()"
                 type="button"
                 class="btn btn-secondary"
-            >Export to CSV</button>
+            >Export to CSV</v-btn>
         </ul>
         <v-container>
             <v-app-bar color="indigo" dark>
@@ -71,6 +71,7 @@
 
 <script>
 import API from '@/lib/API'
+import { v4 as uuidv4 } from 'uuid';
 import { writeProductData, downToCSV } from '@/lib/write'
 
 export default {
@@ -154,29 +155,33 @@ export default {
                 rows.push(doc)
             })
 
-            const filename = 'sniper_product_' + new Date().toLocaleString()
+            const filename = 'sniper_product_' + uuidv4() + '.xls';
             downToCSV(rows, filename)
         },
 
         initData(page, pageNums, searchBrand = '', searchText = '') {
-            let collectionName = "";
+            let collectionName, categoryId;
             
             this.$store.state.categories.forEach((category, idx1) => {
                 if (category.id == this.$route.params.id) {
                      collectionName = category.name;
+                     categoryId = category.categoryId;
                 } else {
                     category.children.forEach((subcategory, idx2) => {
                         if (subcategory.id == this.$route.params.id) {
-                            collectionName = subcategory.name
+                            collectionName = subcategory.name;
+                            categoryId = subcategory.categoryId;
                         }
                     })
                 }
             });
             this.loading = true;
             
-            API.getProductsByCollection(collectionName, page, pageNums, searchBrand, searchText).then(products => {
+            API.getProductsByCollection(collectionName, categoryId, page, pageNums, searchBrand, searchText).then(result => {
                 if (this.isAdmin) {
-                    this.products = products;
+                    this.products = result.products;
+                    this.currentPageNum = result.pagination.currentPage;
+                    this.totalPages = result.pagination.numberOfPages;
                 } else {
                     this.products = products.dbData;
                     this.totalNums = products.totals;
