@@ -109,7 +109,6 @@ export default {
                 let collection = this.collectionName;
                 this.products.forEach((product, idx) => {
                     writeProductData(collection, product).then(result => {
-                        console.log(result);
                         if (this.products.length == (idx + 1)) {
                             this.$store.commit('updateLoading', false);
                         }
@@ -188,8 +187,8 @@ export default {
                     this.currentPageNum = result.pagination.currentPage;
                     this.totalPages = result.pagination.numberOfPages;
                 } else {
-                    this.products = products.dbData;
-                    this.totalNums = products.totals;
+                    this.products = result.dbData;
+                    this.totalNums = result.totals;
                     if(this.totalNums>0) {
                         this.fromNums = (this.currentPageNum - 1) * this.pageNums + 1;
                         this.toNums = this.fromNums + this.products.length - 1;

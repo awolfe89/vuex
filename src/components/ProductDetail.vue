@@ -145,7 +145,6 @@ export default {
     load(id, collectionName){     
         API.getProduct(id,collectionName)
             .then((result) => {
-                console.log(result);
               this.loading = false;
               this.product = result
             })

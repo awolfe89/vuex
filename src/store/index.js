@@ -39,7 +39,7 @@ const store = new Vuex.Store({
                 categoryId: "6bfd248d-419a-4130-b6ee-a5b200328573"
 
             }, {
-                id: "splicing-tape",
+                id: "polymide-tape",
                 name: "Polyimide Tape",
                 categoryId: "86e076d8-2fb7-4da8-96a1-a5b200328d53"
             }, {
