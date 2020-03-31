@@ -85,7 +85,7 @@ export default {
             loading: true,
             products: [],
             message: '',
-
+            collectionName: '',
             totalPages: 1,
             pageNums: 20,
             searchBrand: '',
@@ -103,15 +103,20 @@ export default {
     },
     methods: {
         async save() {
-            this.$set(this, 'message', '... Processing')
+            this.$store.commit('updateLoading', true);
             try {
                 let count = 0
-                this.products.map(product => {
-                writeProductData('Solder Tips', product)
-                this.$set(this, 'message', `${++count} products added`)
+                let collection = this.collectionName;
+                this.products.forEach((product, idx) => {
+                    writeProductData(collection, product).then(result => {
+                        console.log(result);
+                        if (this.products.length == (idx + 1)) {
+                            this.$store.commit('updateLoading', false);
+                        }
+                    });
                 })
-                this.$set(this, 'message', '')
             } catch (error) {
+                this.$store.commit('updateLoading', false)
                 console.log(error)
             }
         },
@@ -164,12 +169,12 @@ export default {
             
             this.$store.state.categories.forEach((category, idx1) => {
                 if (category.id == this.$route.params.id) {
-                     collectionName = category.name;
+                     this.collectionName = collectionName = category.name;
                      categoryId = category.categoryId;
                 } else {
                     category.children.forEach((subcategory, idx2) => {
                         if (subcategory.id == this.$route.params.id) {
-                            collectionName = subcategory.name;
+                            this.collectionName = collectionName = subcategory.name;
                             categoryId = subcategory.categoryId;
                         }
                     })

@@ -2,18 +2,14 @@
 import { db } from './firebase'
 
 export async function writeProductData(collection, data) {
-  await new Promise((resolve, reject) => {
-    if (collection !== 'fluxRemovers' && collection !== 'Solder Tips') {
-      reject(new Error('Collection name is incorrect.'))
-    }
-
+  return await new Promise((resolve, reject) => {
     db.collection(collection)
       .doc(data.id)
       .set(data)
-      .then(function() {
+      .then(() => {
         resolve({ success: true, id: data.id })
       })
-      .catch(function(error) {
+      .catch((error) => {
         reject(error)
       })
   })

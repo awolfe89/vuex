@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
+        loading: false,
         categories: [{
             id: "solder-tips",
             name: "Solder Tips",
@@ -287,7 +288,9 @@ const store = new Vuex.Store({
         }]
     },
     mutations: {
-
+        updateLoading(state, payload) {
+            state.loading = payload;
+        }
     },
     actions: {
 

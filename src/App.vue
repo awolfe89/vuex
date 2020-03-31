@@ -1,5 +1,12 @@
 <<template>
 <div id="app">
+  <loading 
+    :active.sync="loading"
+    background-color="#000000"
+    color="#fafafa"
+    :opacity="0.8"
+    :is-full-page="true"
+  />
   <v-app id="inspire">
     <v-navigation-drawer
       v-model="drawer"
@@ -89,29 +96,26 @@
 
 <script>
 import API from '@/lib/API'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 export default {
   name: 'App',
   props: {
     source: String
   },
+  components: {
+    Loading
+  },
   data: () => ({
     drawer: null,
-    // items: [
-    //   { icon: 'home', text: 'Home', route: '/' },
-    //   { icon: 'forward', text: 'Adhesives', route: '/adhesives' },
-    //   { icon: 'forward', text: 'Benches & Seating', route: '/benches-and-seating' },
-    //   { icon: 'forward', text: 'Chemicals & Cleaning', route: '/chemicals-and-cleaning' },
-    //   { icon: 'forward', text: 'Cleanroom', route: '/cleanroom' },
-    //   { icon: 'forward', text: 'Tools', route: '/tools' },
-    //   { icon: 'forward', text: 'Labels', route: '/labels' },
-    //   { icon: 'forward', text: 'Magnification & Lighting', route: '/magnification-and-lighting' },
-    //   { icon: 'forward', text: 'Soldering Materials', route: '/soldering-materials' },
-    //   { icon: 'forward', text: 'Soldering Stations & Irons', route: '/soldering-stations-irons' },
-    //   { icon: 'forward', text: 'Soldering Tips', route: '/soldertips' },
-    //   { icon: 'forward', text: 'ESD Control', route: '/esd-control' }
-	// ],
-	items: []
+  	items: []
   }),
+  computed: {
+    loading() {
+      return this.$store.state.loading;
+    }
+  },
   created() {
 	this.$vuetify.theme.dark = false
 	this.items = this.$store.state.categories;
