@@ -8,20 +8,21 @@
             <v-col
             v-for="(children, idx) in category.children"
             :key="idx"
-            :cols="6"       
+            :cols="12"       
             >
+            
                 <v-card :to="{name: 'Products', params: {id: children.id}}">
-                    <v-img :src="children.src"
-                        class="black--text align-end"
-                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                        height="80px"   
-                    >
-                        <v-card-title v-text="children.name"></v-card-title>
-                    </v-img>
+                  
+                           
+           
+     
+                   <v-card-title v-text="children.name"> </v-card-title>
+                                   
+                
                     <v-card-actions>
-                    <v-spacer></v-spacer>
+                    
                         <v-btn icon color='blue' :to="{name: 'Products', params: {id: children.id}}">
-                            <v-icon>arrow_forward</v-icon>
+                            <v-icon>{{children.icon}}</v-icon>
                         </v-btn>
                     </v-card-actions>
                 </v-card>

@@ -1,55 +1,54 @@
 /* eslint-disable eol-last */
 
 const CORS_URL = 'https://cors-anywhere.herokuapp.com/'
-
-const fluxRemoversUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=9d568b5a-77fc-4fc1-b19a-a5b20032b36e&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=151&searchWithin=&sort=0&page='
-const solderTipsUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=61d6c890-2d5d-4194-97ec-a5b20032b0e7&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=200&searchWithin=&sort='
-const sprayAdhesivesUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=0f5c665b-1b9a-48d6-b892-a5b200327048&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=161&searchWithin=&sort=&page='
-const dispensingNeedlesUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=817a439d-e777-4b5b-a157-a5b200327661&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='  
-const sealantsUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=7f4a38d3-a451-49a3-8ad9-a5b200328086&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const tapeUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=6bfd248d-419a-4130-b6ee-a5b200328573&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const polyimideTapeUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=86e076d8-2fb7-4da8-96a1-a5b200328d53&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const splicingTapeUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=e0876155-3f11-4c1e-8050-a5b2003290e5&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-
-  const chairsUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=27261e88-8d06-4dc4-92cd-a5b20032a09b&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const cleanroomWipesUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=4518659c-444f-4e0e-a1fd-a5b20032dc80&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const brushesUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=658a6bb4-ed5f-4dee-a68e-a5b20032acd6&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const degreasersUrl = 
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=89550d15-8f17-427f-a4a0-a5b20032b4c4&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const solventsUrl =
- 'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=3260b768-f56b-4a90-bfc4-a5b20032b3d9&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=5&searchWithin=&sort='
-const contactCleanersUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=4d1551cc-a42a-4619-acd6-a5b20032b416&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=4&searchWithin=&sort='  
-const floorCleanersUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=648568b2-2be8-4bd4-acb3-a5b20032b71c&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=4&searchWithin=&sort='  
-const dustersUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=53f56162-a5c7-49d2-a01e-a5b20032bf17&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=4&searchWithin=&sort='
-const fiberOpticCleanersUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=7283059e-8f49-48e8-b316-a5b20032c145&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=4&searchWithin=&sort='  
-const cleaningSwabsUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=97b2bded-e1d3-4cf8-ad70-a5b20032cd56&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=4&searchWithin=&sort='
-const stencilWipesUrl =
-  'https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId=740af679-5e6c-46b0-a3a2-a5b20032d150&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false&page=1&pageSize=4&searchWithin=&sort='
-  
-  
 const mainUrl =
   'https://cors-anywhere.herokuapp.com/https://www.all-spec.com/api/v1/products/?applyPersonalization=true&categoryId='
 const endOfUrl =
   '&expand=pricing,attributes,facets,brand&getAllAttributeFacets=true&includeAlternateInventory=true&includeAttributes=IncludeOnProduct&includeSuggestions=true&makeBrandUrls=false';
 // &page=1&pageSize=4&searchWithin=&sort='  
   
-  /* CATEGORY IDs 
+ 
+/*
+
+***TO ADD 
+
+#Chemicals & Cleaning
+  75- general purpose cleaners - 45e37324-4cbd-49f3-8ccf-a5b20032b7ef
+  93- conformal coating - fb9f7c32-3b5d-4de7-aa0f-a5b20032b1fb
+#Tools
+  94 - scissors - 1b0f7c2f-a90f-4399-a351-a5b200334bae
+  195 - Punches/Dies - 2d90a81e-711c-4c84-bcdf-a5b200337cae
+  63- Lead Forming -9459d200-a4d7-461c-a769-a5b200337e12
+  151- nut drivers - f8f0ce57-f85d-44d9-b243-a5b200338afb
+  280 - sockets - bc90ff8c-9c0d-43b9-8609-a5b20033b26c
+  123- torque screwdrivers - b9159a93-525f-4f06-938b-a5b20033c4d7
+  735- tweezers - 5b6b3566-565b-4cf8-a4d2-a5b20033ce12
+  71 - hex wrenches - 68e77c63-cb6a-4be4-942e-a5b20033d646
+
+#Storage & Handling
+  101- utility Carts - 
+  291- Stacking Bins -
+  126- circuit board shippers -
+
+#Safety
+  413 - safety glasses
+  49 - inspection gloves
+  146- lab gloves
+  141- coated gloves
+  168- ear plugs
+  349- anti-fatigue mats
+  100- lab coats
+
+#Soldering stations ect.
+  358 desoldering tips
+
+#Solder materials
+  102- flux
+
+#ESD
+  Heel Grounders 
+  121- ESD floor mats  
+***CATEGORY IDs 
 
 flux removers - 9d568b5a-77fc-4fc1-b19a-a5b20032b36e
 solder tips - 61d6c890-2d5d-4194-97ec-a5b20032b0e7
@@ -146,217 +145,4 @@ ESD :
         .then(result => result.product)
         .catch(error => console.log(error));
     }
-  // getFluxRemovers(page) {
-  //   return fetch(`${CORS_URL}${fluxRemoversUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  //     .catch(error => console.log(error))
-  // },
-
-  // getSolderTips(page) {
-  //   return fetch(`${CORS_URL}${solderTipsUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-
-  // getSprayAdhesives(page) {
-  //   return fetch(`${CORS_URL}${sprayAdhesivesUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getDispensingNeedles(page) {
-  //   return fetch(`${CORS_URL}${dispensingNeedlesUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getSealants(page) {
-  //   return fetch(`${CORS_URL}${sealantsUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getTape(page) {
-  //   return fetch(`${CORS_URL}${tapeUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getPolyimideTape(page) {
-  //   return fetch(`${CORS_URL}${polyimideTapeUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getSplicingTape(page) {
-  //   return fetch(`${CORS_URL}${splicingTapeUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getChairs(page) {
-  //   return fetch(`${CORS_URL}${chairsUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getCleanroomWipes(page) {
-  //   return fetch(`${CORS_URL}${cleanroomWipesUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getBrushes(page) {
-  //   return fetch(`${CORS_URL}${brushesUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getDegreasers(page) {
-  //   return fetch(`${CORS_URL}${degreasersUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getSolvents(page) {
-  //   return fetch(`${CORS_URL}${solventsUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getContactCleaners(page) {
-  //   return fetch(`${CORS_URL}${contactCleanersUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getFloorCleaners(page) {
-  //   return fetch(`${CORS_URL}${floorCleanersUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getDusters(page) {
-  //   return fetch(`${CORS_URL}${dustersUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getFiberOpticCleaners(page) {
-  //   return fetch(`${CORS_URL}${fiberOpticCleanersUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getCleaningSwabs(page) {
-  //   return fetch(`${CORS_URL}${cleaningSwabsUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // },
-  // getStencilWipes(page) {
-  //   return fetch(`${CORS_URL}${stencilWipesUrl}${page}`)
-  //     .then(response => response.json())
-  //     .then(result => result.products)
-  // }
 }
-
-/*
-
-Anti-static Tape - 289
-
-Polyimide Tape -131
-
-Splicing Tape -221
-
-Chairs -771
-
-ESD brushes - 82
-
-degreasers - 92
-
-Solvents - 94
-
-contact cleaners 79
-
-floor cleaners - 56
-
-dusters 30
-
-fiber optic cleaners 49
-
-cleaning swabs - 166
-
-stencil wipes - 27
-
-gloves - 160
-
-shoe covers
-
-cleanroom chairs
-
-swabs
-
-wipes
-
-crimpers
-
-wire cutters
-
-cutters
-
-heat guns
-
-heat gun accessories
-
-pliers
-
-wire strippers
-
-torque screwdrivers
-
-printer labels
-
-thermal transfer labels
-
-signage
-
-task lights
-
-lighted magnifiers
-
-microscopes
-
-microscope accessories
-
-bar solder
-
-solder paste
-
-wire solder
-
-soldering stations
-
-soldering irons
-
-soldering iron accessories 
-
-soldering tips
-
-fume extraction
-
-fume extractor accessories
-
-desoldering irons
-
-desoldering braids
-
-hot air nozzles
-
-flux removers
-
-esd benchtop mats
-
-esd document holders
-
-esd safe trays
-
-wrist straps
-
-nitrile gloves
-
-in-plant handlers
-
-caution labels
-
-static shielding bags
-
-moisture barrier bags
-
-worksation monitors
-*/

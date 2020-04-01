@@ -29,7 +29,7 @@
           :key="key"
         >
           <v-list-item-action>
-            <v-icon>forward</v-icon>
+            <v-icon>{{item.icon}}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
              <router-link :to="{name: 'Category', params: {id: item.id}}"> 
@@ -76,14 +76,6 @@
         align-center
         style="max-width: 650px"
       >
-        <v-text-field
-          :append-icon-cb="() => {}"
-          placeholder="Search..."
-          single-line
-          append-icon="search"
-          color="white"
-          hide-details
-        ></v-text-field>
       </v-layout>
     </v-app-bar>
 

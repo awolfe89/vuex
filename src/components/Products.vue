@@ -15,16 +15,16 @@
         <ul class="list-unstyled" v-if="isAdmin">
             <v-btn @click="save()"
                 type="button"
-                class="btn btn-secondary"
+                class="primary"
             >Push to Firestore</v-btn>
             <v-btn @click="saveToCSV()"
                 type="button"
-                class="btn btn-secondary"
+                class="secondary"
             >Export to CSV</v-btn>
         </ul>
         <v-container>
             <v-app-bar color="indigo" dark>
-                <v-toolbar-title>Filters</v-toolbar-title>
+                <v-toolbar-title>{{collectionName}}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <h4>Showing {{fromNums}} To {{toNums}} Of {{totalNums}} Entries</h4>
                 <v-spacer></v-spacer>
@@ -87,7 +87,7 @@ export default {
             message: '',
             collectionName: '',
             totalPages: 1,
-            pageNums: 20,
+            pageNums: 10,
             searchBrand: '',
             searchText: '',
             brandsList: [],
@@ -99,7 +99,7 @@ export default {
         }
     },
     created() {
-        this.initData(1, 20);
+        this.initData(1, 10);
     },
     methods: {
         async save() {
@@ -180,7 +180,7 @@ export default {
                 }
             });
             this.loading = true;
-            
+
             API.getProductsByCollection(collectionName, categoryId, page, pageNums, searchBrand, searchText).then(result => {
                 if (this.isAdmin) {
                     this.products = result.products;
