@@ -1,6 +1,6 @@
 <template>
   <div class="all">
-<v-subheader>Welcome to E-Supply</v-subheader>
+
   <v-carousel>
     <v-carousel-item
       v-for="(item,i) in items"
@@ -194,5 +194,9 @@ export default {
 .subHead{
   margin-top: 4vh;
   margin-bottom: 2vh;
+}
+
+.v-card{
+  margin-bottom: 10vh;
 }
 </style>

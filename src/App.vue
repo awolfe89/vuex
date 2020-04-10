@@ -41,21 +41,35 @@
         </v-list-item>
      
         <v-subheader class="mt-3 grey--text text--darken-1">HELPFUL LINKS</v-subheader>
+
         <v-list-item
           class="mt-3"
           @click=""
         >
           <v-list-item-action>
-            <v-icon color="grey darken-1">code</v-icon>
-          </v-list-item-action>
-          <v-list-item-title class="grey--text text--darken-1">About</v-list-item-title>
-        </v-list-item>
-        <v-list-item @click="">
-          <v-list-item-action>
-            <v-icon color="grey darken-1">contacts</v-icon>
-          </v-list-item-action>
-          <v-list-item-title class="grey--text text--darken-1">Contact</v-list-item-title>
-        </v-list-item>
+            <v-icon>menu_book</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <router-link :to="{path: '/about'}">
+              <v-list-item-title>
+                About
+              </v-list-item-title>
+              </router-link>
+              </v-list-item-content>
+              	</v-list-item>
+    
+       
+	<v-list-item>
+			<v-list-item-action>
+				<v-icon>contacts</v-icon>
+			</v-list-item-action>
+			<v-list-item-content>
+				<router-link :to="{path: '/contact'}">
+					<v-list-item-title>Contact</v-list-item-title>
+				</router-link>
+			</v-list-item-content>
+		</v-list-item>
+
       </v-list>
     </v-navigation-drawer>
 
@@ -68,7 +82,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-icon class="mx-3">fab fa-youtube</v-icon>
       <v-toolbar-title class="mr-5 align-center">
-        <span class="title">E-Supply</span>
+        <span class="title">Fynd-It</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-layout
@@ -82,7 +96,9 @@
     <v-content>
       <router-view  class="container" />
     </v-content>
+
   </v-app>
+
 </div>
 </template>
 

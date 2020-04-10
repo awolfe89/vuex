@@ -26,7 +26,7 @@ export default {
 /*
 
 ***CATEGORY IDs 
-
+38b8e0ac-fb62-4cc4-8c6d-a9f9013e99bc
 
 #ADHESIVES : 
   spray adhesives - 0f5c665b-1b9a-48d6-b892-a5b200327048

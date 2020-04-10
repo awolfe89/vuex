@@ -9,42 +9,9 @@
                 ></v-skeleton-loader>
             </v-sheet>
         </div>
-        
         <template v-else>
-            <div class='productImage'>
-                <v-card class="d-inline-block mx-auto">
-                    <v-container>
-                        <v-row justify="space-between">
-                            <v-col cols="auto">
-                            <v-img
-                                width="300"
-                                :src="product.largeImagePath"
-                            ></v-img>
-                          <!--  <v-btn large color="#F08122">Buy Now</v-btn> -->
-                            </v-col>
-
-                            <v-col
-                            cols="auto"
-                            class="text-center pl-0"
-                            >
-                            <v-row
-                                class="flex-column ma-0 fill-height"
-                                justify="center"
-                            >
-                                <v-col class="px-0">
-                                    
-                                </v-col>
-
-                                <v-col class="px-0">
-                                    
-                                </v-col>
-                            </v-row>
-                            </v-col>
-                        </v-row>
-                    </v-container>
-                </v-card>
-            </div>
-            <v-app-bar dark
+            <!--- TOP PRODUCT PREVIEW --->
+                        <v-app-bar dark
                 color="red"
                 height='auto'
             >
@@ -52,6 +19,77 @@
                 <v-spacer></v-spacer>
                 <v-toolbar-title >${{product.pricing.actualPrice}}</v-toolbar-title >
             </v-app-bar>
+  <v-card class="inline-block mx-auto">
+    <v-container>
+      <v-row justify="space-between">
+        <v-col cols="auto">
+          <v-img
+            height="auto"
+            width="300"
+            :src="product.largeImagePath"
+          ></v-img>
+        </v-col>
+        <v-col
+          cols="auto"
+          class="text-left"
+        >
+          <v-row
+            class="flex-column ma-0 fill-height"
+            justify="center"
+          >
+            <v-col class='text-left'>
+                <v-card-title class='text-left'>{{product.shortDescription}}</v-card-title>
+            </v-col>
+            <v-col class="text-right">
+                <v-text>Brand: {{product.brand.name}}</v-text>
+                 <v-card-subtitle class="text-right py-0" v-text="'List: ' + product.pricing.unitListPriceDisplay" style='text-decoration: line-through'></v-card-subtitle>
+                <v-text>Your Price ${{product.pricing.actualPrice}}</v-text>
+                <v-card-subtitle class="text-right py-0" v-text="product.availability.message"></v-card-subtitle>
+                <v-card-subtitle class="text-right py-0" v-text="'Manufactured In: ' + product.countryOfOrigin"></v-card-subtitle>
+            </v-col>
+            <v-col class='text-right'>
+              <v-btn class='primary'> <v-icon>shopping_cart</v-icon> Buy
+              </v-btn> 
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
+            <!--- END TOP PRODUCT PREVIEW  ---> 
+<!--- PRODUCT TABS ---> 
+  <v-card>
+    <v-tabs
+      v-model="tab"
+      background-color="deep-purple accent-4"
+      centered
+      dark
+      icons-and-text
+    >
+      <v-tabs-slider></v-tabs-slider>
+
+      <v-tab href="#tab-1">
+        Recents
+        <v-icon>mdi-phone</v-icon>
+      </v-tab>
+
+      <v-tab href="#tab-2">
+        Favorites
+        <v-icon>mdi-heart</v-icon>
+        <v-card flat> hello</v-card>
+      </v-tab>
+
+      <v-tab href="#tab-3">
+        Nearby
+        <v-icon>mdi-account-box</v-icon>
+      </v-tab>
+    </v-tabs>
+
+
+ 
+
+  </v-card>
+<!---- END PRODUCT TABS ---> 
 
             <v-container>
                 <v-row dense>
@@ -155,19 +193,16 @@ export default {
 
 <style scoped>
 
-.prodImg {
-    
-    width: 20vw;
-    /* height: auto; */
-}
+  .card-content {
+    padding: 15px 10px 15px 0;
+  }
+    .card-content__text {
+    padding: 15px 10px 15px 0;
+  }
 .all{
     width: 90%;
 }
-.productImage {
-    margin-top: 2vh;
-    text-align: center;
-    justify-content: space-between;
-}
+
 
 .description {
     margin-left: 5%;

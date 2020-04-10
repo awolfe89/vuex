@@ -40,7 +40,7 @@
           class="headline grey lighten-2"
           primary-title
         >
-          Introduction
+          About
         </v-card-title>
 
         <v-card-text>
@@ -96,7 +96,7 @@
         {
 
         cards: [
-            { title: 'Introduction', src: 'https://www.bacancytechnology.com/blog/wp-content/uploads/2019/04/vuejs-plugins-blog-banner.jpg', flex: 12 },
+            { title: 'About', src: 'https://www.bacancytechnology.com/blog/wp-content/uploads/2019/04/vuejs-plugins-blog-banner.jpg', flex: 12 },
 
         ],
         items: [

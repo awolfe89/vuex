@@ -10,17 +10,9 @@
             :key="idx"
             :cols="12"       
             >
-            
                 <v-card :to="{name: 'Products', params: {id: children.id}}">
-                  
-                           
-           
-     
                    <v-card-title v-text="children.name"> </v-card-title>
-                                   
-                
                     <v-card-actions>
-                    
                         <v-btn icon color='blue' :to="{name: 'Products', params: {id: children.id}}">
                             <v-icon>{{children.icon}}</v-icon>
                         </v-btn>

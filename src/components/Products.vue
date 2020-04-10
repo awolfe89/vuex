@@ -26,16 +26,29 @@
             <v-app-bar color="indigo" dark>
                 <v-toolbar-title>{{collectionName}}</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <h4>Showing {{fromNums}} To {{toNums}} Of {{totalNums}} Entries</h4>
+                <h4>Showing {{toNums}} Of {{totalNums}} Products</h4>
                 <v-spacer></v-spacer>
-                <v-select label="" 
+
+                <v-select 
+                    label="Filter Brands" 
                     v-model="searchBrand" 
+                    solo
                     :items="brandsList" 
-                    @change="searchChange"/>
+                    @change="searchChange" 
+                />
+                <v-spacer></v-spacer>
+                <v-text-field 
+                    id="searchText" 
+                    label='Search' 
+                    v-model="searchText"
+                    solo 
+                    @keyup.enter="searchChange"
+                />
+                      
             </v-app-bar>
             <v-row>
                 <v-col v-for="(product, idx) in products" :key="idx" cols="6">
-                    <v-card light :to="{name: 'ProductDetail', params: {id: product.id, collection: $route.params.id}}">
+                  <v-card light :to="{name: 'ProductDetail', params: {id: product.id, collection: $route.params.id}}">
                         <div class="d-flex flex-no-wrap flex-start">
                             <v-avatar class="ma-3" size="200" tile>
                                 <v-img :src="product.largeImagePath"></v-img>
@@ -43,12 +56,15 @@
                             <div class="d-flex product-content">
                                 <div>
                                     <v-card-title v-if="product.pageTitle" class="headline" v-text="product.pageTitle"></v-card-title>
-                                    <v-card-title v-else class="headline" v-text="product.brand.name + ' ' + product.shortDescription"></v-card-title>
-                                    <v-card-subtitle class="text-right" v-text="product.brand.name"></v-card-subtitle>
-                                    <v-card-subtitle class="text-right py-0" v-text="'List: ' + product.pricing.unitListPriceDisplay"></v-card-subtitle>
+                                    <v-card-title v-else class="headline" v-text="product.altText"></v-card-title>
+                                    
+                                    <v-card-subtitle v-if="product.brand.name" class="text-right" v-text="'Brand: ' + product.brand.name"></v-card-subtitle>
+                                    <v-card-subtitle class="text-right py-0" v-text="'List: ' + product.pricing.unitListPriceDisplay" style='text-decoration: line-through'></v-card-subtitle>
+                                     <v-card-subtitle class="text-right py-0" v-text="'Sale: ' + product.pricing.unitRegularPriceDisplay" style='color: red; font-weight: bold'></v-card-subtitle>
+                                     <v-card-subtitle class="text-right py-0" v-text="product.availability.message" ></v-card-subtitle>
                                 </div>
                                 <v-card-actions class="d-block text-right">
-                                    <v-btn outlined small tile color="indigo" :to="{name: 'ProductDetail', params: {id: product.id, collection: $route.params.id}}">View</v-btn>
+                                <v-btn small tile color="primary" :to="{name: 'ProductDetail', params: {id: product.id, collection: $route.params.id}}">View</v-btn> 
                                  <!--   <v-btn outlined small tile color="success">Buy Now</v-btn> -->
                                 </v-card-actions>
                             </div>
@@ -88,7 +104,7 @@ export default {
             collectionName: '',
             totalPages: 1,
             pageNums: 10,
-            searchBrand: '',
+            searchBrand: 'sdf',
             searchText: '',
             brandsList: [],
             fromNums: 0,
@@ -233,5 +249,13 @@ export default {
 }
 .v-text-field__details {
     display: none;
+}
+
+.v-input__control {
+    color: white ;
+}
+
+.v-select__slot {
+    color: white;
 }
 </style>

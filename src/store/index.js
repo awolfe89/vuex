@@ -12,6 +12,7 @@ const store = new Vuex.Store({
             icon: 'colorize',
             hasChild: true,
             children: [
+
                 {
                     id: "anti-static-tape",
                     name: "Anti Static Tape",
@@ -422,6 +423,28 @@ const store = new Vuex.Store({
                 },
             ]
         }, {
+            id: "shop-by-brand",
+            name: "Shop By Brand",
+            icon: 'card_travel',
+            hasChild: true,
+            children: [
+                {
+                    id: "acl-staticide",
+                    name: "ACL Staticide",
+            
+                },
+                {
+                    id: "stacking-bins",
+                    name: "Stacking Bins",
+                    categoryId: "42241637-990f-4338-972f-a5b200344adb"
+                },
+                {
+                    id: "utility-carts",
+                    name: "Utility Carts",
+                    categoryId: "e6495446-4d09-4f34-bddd-a5b200342d8a"
+                },
+            ]
+        },  {
             id: "esd",
             name: "ESD",
             icon: 'flash_off',
@@ -455,7 +478,7 @@ const store = new Vuex.Store({
                 {
                     id: "heel-grounders",
                     name: "Heel Grounders",
-                    categoryId: "c369034d-902f-46e2-a51e-a5b20032e8ad"
+                    categoryId: "6abbc9c3-da90-402f-83ee-a5b20032e84f"
                 },
                 {
                     id: "in-plant-handlers",
